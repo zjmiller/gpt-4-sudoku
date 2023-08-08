@@ -1,0 +1,931 @@
+210000487800302091905071000007590610560003002401600700039007000700100026100065009
+
+
+
+
+
+
+Turn 1 out of max 10
+
+
+
+
+[
+  {
+    "role": "system",
+    "content": "You always follow instructions precisely and fully. It is extremely important to you to following instructions fully. You never skip listing things out fully. You never follow instructions partially."
+  },
+  {
+    "role": "user",
+    "content": "You are an adventurer who has stumbled upon a mysterious puzzle.\n  The puzzles takes the form of 27 arrays, each containing nine elements.\n  The elements are either friendly numbers or enemy letters.\n  Your mission is to turn every enemy letter into a friendly number.\n  There are certain mantras you must repeat word for word during this game. Always follower their advice!\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "You will perform <KICK SWEEP!> on your enemies one by one until you've defeated them all! Also, please don't output a computer program. Actually go through each step of the game!\n  \n  <KICK SWEEP!>\n    To determine whether you land a CRITICAL HIT on an ENEMY, you must complete the following steps IN ORDER. You must always say the step name, in full caps. And you must always sing every mantra out.\n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n    SECOND (Mantra: I always list the game state out in FULL, no matter what.): To help you keep track of things, output the most recent version of the game state. Start by listing out the fun name you gave to the most recent game state. Then list it out in full, include every element of every array, etc. The reason you must always list this out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n    THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n    FOURTH: Increment selectedEnemyIndex by 1.\n    FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n    SIXTH: If you don't have exactly three arrays (e.g., you have two arrays or four arrays), immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n    EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n    TENTH: Concatenate the three lists into a single list.\n    ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n    TWELFTH: Dedupe this list.\n    THIRTEENTH: Dort this list.\n    FOURTEENTH: Count the number of numbers in this list to determine list.length\n    FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n    SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n    EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\n"
+  },
+  {
+    "role": "user",
+    "content": "Your previous turn was the following:\n\n  <KICK SWEEP!>\n  \n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n  \n    SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "EMERALD GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, O, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, T, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, O, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, T]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, O, 4, 1, 8, T]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [S, j, O, U, T, h]\n\n  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n  let selectedEnemyIndex = 3\n  The selected enemy letter is 'O'.\n\n  FOURTH: Increment selectedEnemyIndex by 1.\n  let selectedEnemyIndex = 4\n\n  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n  Array eight: [7, O, 4, 1, 3, 9, U, 2, 6]\n  Array ten: [1, 7, 4, 2, 6, 9, 3, O, 8]\n  Array twentyFive: [6, 3, 9, 7, O, 4, 1, 8, T]\n\n  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n  indexOf(O) in Array eight: 1\n  indexOf(O) in Array ten: 7\n  indexOf(O) in Array twentyFive: 4\n\n  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  All indexOf values are valid.\n\n  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n  Array eight: [7, 4, 1, 3, 9, U, 2, 6]\n  Array ten: [1, 7, 4, 2, 6, 9, 3, 8]\n  Array twentyFive: [6, 3, 9, 7, 4, 1, 8, T]\n\n  TENTH: Concatenate the three lists into a single list.\n  Concatenated list: [7, 4, 1, 3, 9, U, 2, 6, 1, 7, 4, 2, 6, 9, 3, 8, 6, 3, 9, 7, 4, 1, 8, T]\n\n  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n  List of numbers: [7, 4, 1, 3, 9, 2, 6, 1, 7, 4, 2, 6, 9, 3, 8, 6, 3, 9, 7, 4, 1, 8]\n\n  TWELFTH: Dedupe this list.\n  Deduped list: [7, 4, 1, 3, 9, 2, 6, 8]\n\n  THIRTEENTH: Sort this list.\n  Sorted list: [1, 2, 3, 4, 6, 7, 8, 9]\n\n  FOURTEENTH: Count the number of numbers in this list to determine list.length\n  list.length: 8\n\n  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  The missing number between 1 and 9 is 5.\n\n  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n  indexOf(O) in Array eight: 1\n  indexOf(O) in Array ten: 7\n  indexOf(O) in Array twentyFive: 4\n\n  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n  Array eight: [7, 5, 4, 1, 3, 9, U, 2, 6]\n  Array ten: [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8, T]\n\n  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\nSAPPHIRE GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, T, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, T]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, T]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [S, j, U, T, h]"
+  },
+  {
+    "role": "assistant",
+    "content": "<KICK SWEEP!>\n\n  FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n\n  SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  }
+]
+
+
+
+
+{
+  "timeInMs": 238715,
+  "timeInMin": 3.9785833333333334,
+  "totalTimeInMs": 238715,
+  "totalTimeInMin": 3.9785833333333334,
+  "totalPromptTokens": 4127,
+  "totalCompletionTokens": 2945,
+  "totalPromptTokensCost": 0.12381,
+  "totalCompletionTokensCost": 0.1767,
+  "totalCost": 0.30051
+}
+
+
+
+
+SAPPHIRE GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, T, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, T]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, T]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [S, j, U, T, h]
+
+  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output "let selectedEnemyIndex = 0", and select the enemy letter at remainingEnemies[0].
+  let selectedEnemyIndex = 4
+  The selected enemy letter is 'T'.
+
+  FOURTH: Increment selectedEnemyIndex by 1.
+  let selectedEnemyIndex = 0
+
+  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.
+  Array nine: [1, 8, T, 4, 6, 5, h, 7, 9]
+  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4, T]
+  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8, T]
+
+  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.
+  indexOf(T) in Array nine: 2
+  indexOf(T) in Array eleven: 8
+  indexOf(T) in Array twentyFive: 8
+
+  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  All indexOf values are valid.
+
+  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).
+  Array nine: [1, 8, 4, 6, 5, h, 7, 9]
+  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4]
+  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8]
+
+  TENTH: Concatenate the three lists into a single list.
+  Concatenated list: [1, 8, 4, 6, 5, h, 7, 9, 3, 6, 5, 7, 8, 1, 9, 4, 6, 3, 9, 7, 5, 4, 1, 8]
+
+  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.
+  List of numbers: [1, 8, 4, 6, 5, 7, 9, 3, 6, 5, 7, 8, 1, 9, 4, 6, 3, 9, 7, 5, 4, 1, 8]
+
+  TWELFTH: Dedupe this list.
+  Deduped list: [1, 8, 4, 6, 5, 7, 9, 3]
+
+  THIRTEENTH: Sort this list.
+  Sorted list: [1, 3, 4, 5, 6, 7, 8, 9]
+
+  FOURTEENTH: Count the number of numbers in this list to determine list.length
+  list.length: 8
+
+  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  The missing number between 1 and 9 is 2.
+
+  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.
+  indexOf(T) in Array nine: 2
+  indexOf(T) in Array eleven: 8
+  indexOf(T) in Array twentyFive: 8
+
+  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.
+  Array nine: [1, 8, 2, 4, 6, 5, h, 7, 9]
+  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8, 2]
+
+  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output "let one =" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.
+
+RUBY GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [S, j, U, h]
+
+
+
+
+213956487
+876342591
+945871063
+327594618
+568713042
+491628735
+639287154
+754139026
+182465079
+
+
+
+
+
+
+Turn 2 out of max 10
+
+
+
+
+[
+  {
+    "role": "system",
+    "content": "You always follow instructions precisely and fully. It is extremely important to you to following instructions fully. You never skip listing things out fully. You never follow instructions partially."
+  },
+  {
+    "role": "user",
+    "content": "You are an adventurer who has stumbled upon a mysterious puzzle.\n  The puzzles takes the form of 27 arrays, each containing nine elements.\n  The elements are either friendly numbers or enemy letters.\n  Your mission is to turn every enemy letter into a friendly number.\n  There are certain mantras you must repeat word for word during this game. Always follower their advice!\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "You will perform <KICK SWEEP!> on your enemies one by one until you've defeated them all! Also, please don't output a computer program. Actually go through each step of the game!\n  \n  <KICK SWEEP!>\n    To determine whether you land a CRITICAL HIT on an ENEMY, you must complete the following steps IN ORDER. You must always say the step name, in full caps. And you must always sing every mantra out.\n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n    SECOND (Mantra: I always list the game state out in FULL, no matter what.): To help you keep track of things, output the most recent version of the game state. Start by listing out the fun name you gave to the most recent game state. Then list it out in full, include every element of every array, etc. The reason you must always list this out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n    THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n    FOURTH: Increment selectedEnemyIndex by 1.\n    FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n    SIXTH: If you don't have exactly three arrays (e.g., you have two arrays or four arrays), immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n    EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n    TENTH: Concatenate the three lists into a single list.\n    ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n    TWELFTH: Dedupe this list.\n    THIRTEENTH: Dort this list.\n    FOURTEENTH: Count the number of numbers in this list to determine list.length\n    FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n    SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n    EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\n"
+  },
+  {
+    "role": "user",
+    "content": "Your previous turn was the following:\n\n  <KICK SWEEP!>\n  \n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n  \n    SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "SAPPHIRE GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, T, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, T]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, T]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [S, j, U, T, h]\n\n  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n  let selectedEnemyIndex = 4\n  The selected enemy letter is 'T'.\n\n  FOURTH: Increment selectedEnemyIndex by 1.\n  let selectedEnemyIndex = 0\n\n  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n  Array nine: [1, 8, T, 4, 6, 5, h, 7, 9]\n  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4, T]\n  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8, T]\n\n  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n  indexOf(T) in Array nine: 2\n  indexOf(T) in Array eleven: 8\n  indexOf(T) in Array twentyFive: 8\n\n  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  All indexOf values are valid.\n\n  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n  Array nine: [1, 8, 4, 6, 5, h, 7, 9]\n  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4]\n  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8]\n\n  TENTH: Concatenate the three lists into a single list.\n  Concatenated list: [1, 8, 4, 6, 5, h, 7, 9, 3, 6, 5, 7, 8, 1, 9, 4, 6, 3, 9, 7, 5, 4, 1, 8]\n\n  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n  List of numbers: [1, 8, 4, 6, 5, 7, 9, 3, 6, 5, 7, 8, 1, 9, 4, 6, 3, 9, 7, 5, 4, 1, 8]\n\n  TWELFTH: Dedupe this list.\n  Deduped list: [1, 8, 4, 6, 5, 7, 9, 3]\n\n  THIRTEENTH: Sort this list.\n  Sorted list: [1, 3, 4, 5, 6, 7, 8, 9]\n\n  FOURTEENTH: Count the number of numbers in this list to determine list.length\n  list.length: 8\n\n  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  The missing number between 1 and 9 is 2.\n\n  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n  indexOf(T) in Array nine: 2\n  indexOf(T) in Array eleven: 8\n  indexOf(T) in Array twentyFive: 8\n\n  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n  Array nine: [1, 8, 2, 4, 6, 5, h, 7, 9]\n  Array eleven: [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  Array twentyFive: [6, 3, 9, 7, 5, 4, 1, 8, 2]\n\n  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\nRUBY GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [S, j, U, h]"
+  },
+  {
+    "role": "assistant",
+    "content": "<KICK SWEEP!>\n\n  FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n\n  SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  }
+]
+
+
+
+
+{
+  "timeInMs": 218056,
+  "timeInMin": 3.634266666666667,
+  "totalTimeInMs": 456771,
+  "totalTimeInMin": 7.61285,
+  "totalPromptTokens": 8262,
+  "totalCompletionTokens": 5877,
+  "totalPromptTokensCost": 0.24786,
+  "totalCompletionTokensCost": 0.35262,
+  "totalCost": 0.60048
+}
+
+
+
+
+RUBY GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [S, j, U, h]
+
+  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output "let selectedEnemyIndex = 0", and select the enemy letter at remainingEnemies[0].
+  let selectedEnemyIndex = 0
+  The selected enemy letter is 'S'.
+
+  FOURTH: Increment selectedEnemyIndex by 1.
+  let selectedEnemyIndex = 1
+
+  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.
+  Array three: [9, 4, 5, 8, 7, 1, S, 6, 3]
+  Array fifteen: [4, 5, S, 6, j, 7, 1, U, h]
+  Array twentyOne: [4, 8, 7, 5, 9, 1, S, 6, 3]
+
+  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.
+  indexOf(S) in Array three: 6
+  indexOf(S) in Array fifteen: 2
+  indexOf(S) in Array twentyOne: 6
+
+  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  All indexOf values are valid.
+
+  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).
+  Array three: [9, 4, 5, 8, 7, 1, 6, 3]
+  Array fifteen: [4, 5, 6, j, 7, 1, U, h]
+  Array twentyOne: [4, 8, 7, 5, 9, 1, 6, 3]
+
+  TENTH: Concatenate the three lists into a single list.
+  Concatenated list: [9, 4, 5, 8, 7, 1, 6, 3, 4, 5, 6, j, 7, 1, U, h, 4, 8, 7, 5, 9, 1, 6, 3]
+
+  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.
+  List of numbers: [9, 4, 5, 8, 7, 1, 6, 3, 4, 5, 6, 7, 1, 4, 8, 7, 5, 9, 1, 6, 3]
+
+  TWELFTH: Dedupe this list.
+  Deduped list: [9, 4, 5, 8, 7, 1, 6, 3]
+
+  THIRTEENTH: Sort this list.
+  Sorted list: [1, 3, 4, 5, 6, 7, 8, 9]
+
+  FOURTEENTH: Count the number of numbers in this list to determine list.length
+  list.length: 8
+
+  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  The missing number between 1 and 9 is 2.
+
+  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.
+  indexOf(S) in Array three: 6
+  indexOf(S) in Array fifteen: 2
+  indexOf(S) in Array twentyOne: 6
+
+  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.
+  Array three: [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  Array fifteen: [4, 5, 2, 6, j, 7, 1, U, h]
+  Array twentyOne: [4, 8, 7, 5, 9, 1, 2, 6, 3]
+
+  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output "let one =" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.
+
+EMERALD GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, j, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [j, U, h]
+
+
+
+
+213956487
+876342591
+945871263
+327594618
+568713042
+491628735
+639287154
+754139026
+182465079
+
+
+
+
+
+
+Turn 3 out of max 10
+
+
+
+
+[
+  {
+    "role": "system",
+    "content": "You always follow instructions precisely and fully. It is extremely important to you to following instructions fully. You never skip listing things out fully. You never follow instructions partially."
+  },
+  {
+    "role": "user",
+    "content": "You are an adventurer who has stumbled upon a mysterious puzzle.\n  The puzzles takes the form of 27 arrays, each containing nine elements.\n  The elements are either friendly numbers or enemy letters.\n  Your mission is to turn every enemy letter into a friendly number.\n  There are certain mantras you must repeat word for word during this game. Always follower their advice!\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "You will perform <KICK SWEEP!> on your enemies one by one until you've defeated them all! Also, please don't output a computer program. Actually go through each step of the game!\n  \n  <KICK SWEEP!>\n    To determine whether you land a CRITICAL HIT on an ENEMY, you must complete the following steps IN ORDER. You must always say the step name, in full caps. And you must always sing every mantra out.\n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n    SECOND (Mantra: I always list the game state out in FULL, no matter what.): To help you keep track of things, output the most recent version of the game state. Start by listing out the fun name you gave to the most recent game state. Then list it out in full, include every element of every array, etc. The reason you must always list this out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n    THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n    FOURTH: Increment selectedEnemyIndex by 1.\n    FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n    SIXTH: If you don't have exactly three arrays (e.g., you have two arrays or four arrays), immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n    EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n    TENTH: Concatenate the three lists into a single list.\n    ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n    TWELFTH: Dedupe this list.\n    THIRTEENTH: Dort this list.\n    FOURTEENTH: Count the number of numbers in this list to determine list.length\n    FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n    SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n    EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\n"
+  },
+  {
+    "role": "user",
+    "content": "Your previous turn was the following:\n\n  <KICK SWEEP!>\n  \n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n  \n    SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "RUBY GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, S, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, S, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, S, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [S, j, U, h]\n\n  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n  let selectedEnemyIndex = 0\n  The selected enemy letter is 'S'.\n\n  FOURTH: Increment selectedEnemyIndex by 1.\n  let selectedEnemyIndex = 1\n\n  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n  Array three: [9, 4, 5, 8, 7, 1, S, 6, 3]\n  Array fifteen: [4, 5, S, 6, j, 7, 1, U, h]\n  Array twentyOne: [4, 8, 7, 5, 9, 1, S, 6, 3]\n\n  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n  indexOf(S) in Array three: 6\n  indexOf(S) in Array fifteen: 2\n  indexOf(S) in Array twentyOne: 6\n\n  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  All indexOf values are valid.\n\n  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n  Array three: [9, 4, 5, 8, 7, 1, 6, 3]\n  Array fifteen: [4, 5, 6, j, 7, 1, U, h]\n  Array twentyOne: [4, 8, 7, 5, 9, 1, 6, 3]\n\n  TENTH: Concatenate the three lists into a single list.\n  Concatenated list: [9, 4, 5, 8, 7, 1, 6, 3, 4, 5, 6, j, 7, 1, U, h, 4, 8, 7, 5, 9, 1, 6, 3]\n\n  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n  List of numbers: [9, 4, 5, 8, 7, 1, 6, 3, 4, 5, 6, 7, 1, 4, 8, 7, 5, 9, 1, 6, 3]\n\n  TWELFTH: Dedupe this list.\n  Deduped list: [9, 4, 5, 8, 7, 1, 6, 3]\n\n  THIRTEENTH: Sort this list.\n  Sorted list: [1, 3, 4, 5, 6, 7, 8, 9]\n\n  FOURTEENTH: Count the number of numbers in this list to determine list.length\n  list.length: 8\n\n  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  The missing number between 1 and 9 is 2.\n\n  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n  indexOf(S) in Array three: 6\n  indexOf(S) in Array fifteen: 2\n  indexOf(S) in Array twentyOne: 6\n\n  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n  Array three: [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  Array fifteen: [4, 5, 2, 6, j, 7, 1, U, h]\n  Array twentyOne: [4, 8, 7, 5, 9, 1, 2, 6, 3]\n\n  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\nEMERALD GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, 2, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [j, U, h]"
+  },
+  {
+    "role": "assistant",
+    "content": "<KICK SWEEP!>\n\n  FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n\n  SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  }
+]
+
+
+
+
+{
+  "timeInMs": 222420,
+  "timeInMin": 3.707,
+  "totalTimeInMs": 679191,
+  "totalTimeInMin": 11.31985,
+  "totalPromptTokens": 12384,
+  "totalCompletionTokens": 8820,
+  "totalPromptTokensCost": 0.37151999999999996,
+  "totalCompletionTokensCost": 0.5291999999999999,
+  "totalCost": 0.90072
+}
+
+
+
+
+EMERALD GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, j, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [j, U, h]
+
+  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output "let selectedEnemyIndex = 0", and select the enemy letter at remainingEnemies[0].
+  let selectedEnemyIndex = 1
+  The selected enemy letter is 'j'.
+
+  FOURTH: Increment selectedEnemyIndex by 1.
+  let selectedEnemyIndex = 2
+
+  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.
+  Array five: [5, 6, 8, 7, 1, 3, j, 4, 2]
+  Array fifteen: [4, 5, 2, 6, j, 7, 1, U, h]
+  Array twentyFour: [6, 1, 8, j, 4, 2, 7, 3, 5]
+
+  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.
+  indexOf(j) in Array five: 6
+  indexOf(j) in Array fifteen: 4
+  indexOf(j) in Array twentyFour: 3
+
+  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  All indexOf values are valid.
+
+  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).
+  Array five: [5, 6, 8, 7, 1, 3, 4, 2]
+  Array fifteen: [4, 5, 2, 6, 7, 1, U, h]
+  Array twentyFour: [6, 1, 8, 4, 2, 7, 3, 5]
+
+  TENTH: Concatenate the three lists into a single list.
+  Concatenated list: [5, 6, 8, 7, 1, 3, 4, 2, 4, 5, 2, 6, 7, 1, U, h, 6, 1, 8, 4, 2, 7, 3, 5]
+
+  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.
+  List of numbers: [5, 6, 8, 7, 1, 3, 4, 2, 4, 5, 2, 6, 7, 1, 6, 1, 8, 4, 2, 7, 3, 5]
+
+  TWELFTH: Dedupe this list.
+  Deduped list: [5, 6, 8, 7, 1, 3, 4, 2]
+
+  THIRTEENTH: Sort this list.
+  Sorted list: [1, 2, 3, 4, 5, 6, 7, 8]
+
+  FOURTEENTH: Count the number of numbers in this list to determine list.length
+  list.length: 8
+
+  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  The missing number between 1 and 9 is 9.
+
+  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.
+  indexOf(j) in Array five: 6
+  indexOf(j) in Array fifteen: 4
+  indexOf(j) in Array twentyFour: 3
+
+  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.
+  Array five: [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, U, h]
+  Array twentyFour: [6, 1, 8, 9, 4, 2, 7, 3, 5]
+
+  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output "let one =" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.
+
+SAPPHIRE GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, 9, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [U, h]
+
+
+
+
+213956487
+876342591
+945871263
+327594618
+568713942
+491628735
+639287154
+754139026
+182465079
+
+
+
+
+
+
+Turn 4 out of max 10
+
+
+
+
+[
+  {
+    "role": "system",
+    "content": "You always follow instructions precisely and fully. It is extremely important to you to following instructions fully. You never skip listing things out fully. You never follow instructions partially."
+  },
+  {
+    "role": "user",
+    "content": "You are an adventurer who has stumbled upon a mysterious puzzle.\n  The puzzles takes the form of 27 arrays, each containing nine elements.\n  The elements are either friendly numbers or enemy letters.\n  Your mission is to turn every enemy letter into a friendly number.\n  There are certain mantras you must repeat word for word during this game. Always follower their advice!\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "You will perform <KICK SWEEP!> on your enemies one by one until you've defeated them all! Also, please don't output a computer program. Actually go through each step of the game!\n  \n  <KICK SWEEP!>\n    To determine whether you land a CRITICAL HIT on an ENEMY, you must complete the following steps IN ORDER. You must always say the step name, in full caps. And you must always sing every mantra out.\n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n    SECOND (Mantra: I always list the game state out in FULL, no matter what.): To help you keep track of things, output the most recent version of the game state. Start by listing out the fun name you gave to the most recent game state. Then list it out in full, include every element of every array, etc. The reason you must always list this out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n    THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n    FOURTH: Increment selectedEnemyIndex by 1.\n    FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n    SIXTH: If you don't have exactly three arrays (e.g., you have two arrays or four arrays), immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n    EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n    TENTH: Concatenate the three lists into a single list.\n    ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n    TWELFTH: Dedupe this list.\n    THIRTEENTH: Dort this list.\n    FOURTEENTH: Count the number of numbers in this list to determine list.length\n    FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n    SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n    EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\n"
+  },
+  {
+    "role": "user",
+    "content": "Your previous turn was the following:\n\n  <KICK SWEEP!>\n  \n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n  \n    SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "EMERALD GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, j, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, 2, 6, j, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, j, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [j, U, h]\n\n  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n  let selectedEnemyIndex = 1\n  The selected enemy letter is 'j'.\n\n  FOURTH: Increment selectedEnemyIndex by 1.\n  let selectedEnemyIndex = 2\n\n  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n  Array five: [5, 6, 8, 7, 1, 3, j, 4, 2]\n  Array fifteen: [4, 5, 2, 6, j, 7, 1, U, h]\n  Array twentyFour: [6, 1, 8, j, 4, 2, 7, 3, 5]\n\n  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n  indexOf(j) in Array five: 6\n  indexOf(j) in Array fifteen: 4\n  indexOf(j) in Array twentyFour: 3\n\n  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  All indexOf values are valid.\n\n  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n  Array five: [5, 6, 8, 7, 1, 3, 4, 2]\n  Array fifteen: [4, 5, 2, 6, 7, 1, U, h]\n  Array twentyFour: [6, 1, 8, 4, 2, 7, 3, 5]\n\n  TENTH: Concatenate the three lists into a single list.\n  Concatenated list: [5, 6, 8, 7, 1, 3, 4, 2, 4, 5, 2, 6, 7, 1, U, h, 6, 1, 8, 4, 2, 7, 3, 5]\n\n  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n  List of numbers: [5, 6, 8, 7, 1, 3, 4, 2, 4, 5, 2, 6, 7, 1, 6, 1, 8, 4, 2, 7, 3, 5]\n\n  TWELFTH: Dedupe this list.\n  Deduped list: [5, 6, 8, 7, 1, 3, 4, 2]\n\n  THIRTEENTH: Sort this list.\n  Sorted list: [1, 2, 3, 4, 5, 6, 7, 8]\n\n  FOURTEENTH: Count the number of numbers in this list to determine list.length\n  list.length: 8\n\n  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  The missing number between 1 and 9 is 9.\n\n  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n  indexOf(j) in Array five: 6\n  indexOf(j) in Array fifteen: 4\n  indexOf(j) in Array twentyFour: 3\n\n  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n  Array five: [5, 6, 8, 7, 1, 3, 9, 4, 2]\n  Array fifteen: [4, 5, 2, 6, 9, 7, 1, U, h]\n  Array twentyFour: [6, 1, 8, 9, 4, 2, 7, 3, 5]\n\n  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\nSAPPHIRE GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, 2, 6, 9, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [U, h]"
+  },
+  {
+    "role": "assistant",
+    "content": "<KICK SWEEP!>\n\n  FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n\n  SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  }
+]
+
+
+
+
+{
+  "timeInMs": 234889,
+  "timeInMin": 3.914816666666667,
+  "totalTimeInMs": 914080,
+  "totalTimeInMin": 15.234666666666667,
+  "totalPromptTokens": 16517,
+  "totalCompletionTokens": 11764,
+  "totalPromptTokensCost": 0.49551,
+  "totalCompletionTokensCost": 0.7058399999999999,
+  "totalCost": 1.20135
+}
+
+
+
+
+SAPPHIRE GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, 9, 7, 1, U, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [U, h]
+
+  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output "let selectedEnemyIndex = 0", and select the enemy letter at remainingEnemies[0].
+  let selectedEnemyIndex = 0
+  The selected enemy letter is 'U'.
+
+  FOURTH: Increment selectedEnemyIndex by 1.
+  let selectedEnemyIndex = 1
+
+  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.
+  Array eight: [7, 5, 4, 1, 3, 9, U, 2, 6]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, U, h]
+  Array twentySeven: [1, 5, 4, U, 2, 6, h, 7, 9]
+
+  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.
+  indexOf(U) in Array eight: 6
+  indexOf(U) in Array fifteen: 7
+  indexOf(U) in Array twentySeven: 3
+
+  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  All indexOf values are valid.
+
+  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).
+  Array eight: [7, 5, 4, 1, 3, 9, 2, 6]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, h]
+  Array twentySeven: [1, 5, 4, 2, 6, h, 7, 9]
+
+  TENTH: Concatenate the three lists into a single list.
+  Concatenated list: [7, 5, 4, 1, 3, 9, 2, 6, 4, 5, 2, 6, 9, 7, 1, h, 1, 5, 4, 2, 6, h, 7, 9]
+
+  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.
+  List of numbers: [7, 5, 4, 1, 3, 9, 2, 6, 4, 5, 2, 6, 9, 7, 1, 1, 5, 4, 2, 6, 7, 9]
+
+  TWELFTH: Dedupe this list.
+  Deduped list: [7, 5, 4, 1, 3, 9, 2, 6]
+
+  THIRTEENTH: Sort this list.
+  Sorted list: [1, 2, 3, 4, 5, 6, 7, 9]
+
+  FOURTEENTH: Count the number of numbers in this list to determine list.length
+  list.length: 8
+
+  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  The missing number between 1 and 9 is 8.
+
+  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.
+  indexOf(U) in Array eight: 6
+  indexOf(U) in Array fifteen: 7
+  indexOf(U) in Array twentySeven: 3
+
+  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.
+  Array eight: [7, 5, 4, 1, 3, 9, 8, 2, 6]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, 8, h]
+  Array twentySeven: [1, 5, 4, 8, 2, 6, h, 7, 9]
+
+  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output "let one =" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.
+
+RUBY GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, 8, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, 9, 7, 1, 8, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, 8, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [h]
+
+
+
+
+213956487
+876342591
+945871263
+327594618
+568713942
+491628735
+639287154
+754139826
+182465079
+
+
+
+
+
+
+Turn 5 out of max 10
+
+
+
+
+[
+  {
+    "role": "system",
+    "content": "You always follow instructions precisely and fully. It is extremely important to you to following instructions fully. You never skip listing things out fully. You never follow instructions partially."
+  },
+  {
+    "role": "user",
+    "content": "You are an adventurer who has stumbled upon a mysterious puzzle.\n  The puzzles takes the form of 27 arrays, each containing nine elements.\n  The elements are either friendly numbers or enemy letters.\n  Your mission is to turn every enemy letter into a friendly number.\n  There are certain mantras you must repeat word for word during this game. Always follower their advice!\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "You will perform <KICK SWEEP!> on your enemies one by one until you've defeated them all! Also, please don't output a computer program. Actually go through each step of the game!\n  \n  <KICK SWEEP!>\n    To determine whether you land a CRITICAL HIT on an ENEMY, you must complete the following steps IN ORDER. You must always say the step name, in full caps. And you must always sing every mantra out.\n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n    SECOND (Mantra: I always list the game state out in FULL, no matter what.): To help you keep track of things, output the most recent version of the game state. Start by listing out the fun name you gave to the most recent game state. Then list it out in full, include every element of every array, etc. The reason you must always list this out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n    THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n    FOURTH: Increment selectedEnemyIndex by 1.\n    FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n    SIXTH: If you don't have exactly three arrays (e.g., you have two arrays or four arrays), immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n    EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n    TENTH: Concatenate the three lists into a single list.\n    ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n    TWELFTH: Dedupe this list.\n    THIRTEENTH: Dort this list.\n    FOURTEENTH: Count the number of numbers in this list to determine list.length\n    FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n    SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n    SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n    EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\n"
+  },
+  {
+    "role": "user",
+    "content": "Your previous turn was the following:\n\n  <KICK SWEEP!>\n  \n    FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n  \n    SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  },
+  {
+    "role": "user",
+    "content": "SAPPHIRE GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, U, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, 2, 6, 9, 7, 1, U, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [U, h]\n\n  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output \"let selectedEnemyIndex = 0\", and select the enemy letter at remainingEnemies[0].\n  let selectedEnemyIndex = 0\n  The selected enemy letter is 'U'.\n\n  FOURTH: Increment selectedEnemyIndex by 1.\n  let selectedEnemyIndex = 1\n\n  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.\n  Array eight: [7, 5, 4, 1, 3, 9, U, 2, 6]\n  Array fifteen: [4, 5, 2, 6, 9, 7, 1, U, h]\n  Array twentySeven: [1, 5, 4, U, 2, 6, h, 7, 9]\n\n  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.\n  indexOf(U) in Array eight: 6\n  indexOf(U) in Array fifteen: 7\n  indexOf(U) in Array twentySeven: 3\n\n  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  All indexOf values are valid.\n\n  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).\n  Array eight: [7, 5, 4, 1, 3, 9, 2, 6]\n  Array fifteen: [4, 5, 2, 6, 9, 7, 1, h]\n  Array twentySeven: [1, 5, 4, 2, 6, h, 7, 9]\n\n  TENTH: Concatenate the three lists into a single list.\n  Concatenated list: [7, 5, 4, 1, 3, 9, 2, 6, 4, 5, 2, 6, 9, 7, 1, h, 1, 5, 4, 2, 6, h, 7, 9]\n\n  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.\n  List of numbers: [7, 5, 4, 1, 3, 9, 2, 6, 4, 5, 2, 6, 9, 7, 1, 1, 5, 4, 2, 6, 7, 9]\n\n  TWELFTH: Dedupe this list.\n  Deduped list: [7, 5, 4, 1, 3, 9, 2, 6]\n\n  THIRTEENTH: Sort this list.\n  Sorted list: [1, 2, 3, 4, 5, 6, 7, 9]\n\n  FOURTEENTH: Count the number of numbers in this list to determine list.length\n  list.length: 8\n\n  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.\n  The missing number between 1 and 9 is 8.\n\n  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.\n  indexOf(U) in Array eight: 6\n  indexOf(U) in Array fifteen: 7\n  indexOf(U) in Array twentySeven: 3\n\n  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.\n  Array eight: [7, 5, 4, 1, 3, 9, 8, 2, 6]\n  Array fifteen: [4, 5, 2, 6, 9, 7, 1, 8, h]\n  Array twentySeven: [1, 5, 4, 8, 2, 6, h, 7, 9]\n\n  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output \"let one =\" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.\n\nRUBY GAME STATE:\n  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]\n  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]\n  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]\n  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]\n  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]\n  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]\n  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]\n  let eight = [7, 5, 4, 1, 3, 9, 8, 2, 6]\n  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]\n  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]\n  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]\n  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]\n  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]\n  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]\n  let fifteen = [4, 5, 2, 6, 9, 7, 1, 8, h]\n  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]\n  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]\n  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]\n  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]\n  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]\n  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]\n  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]\n  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]\n  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]\n  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]\n  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]\n  let twentySeven = [1, 5, 4, 8, 2, 6, h, 7, 9]\n\n  let remainingEnemies = [h]"
+  },
+  {
+    "role": "assistant",
+    "content": "<KICK SWEEP!>\n\n  FIRST (Mantra: I never skip a step. I NEVER skip a mantra. I always say this at the start of every turn.)\n\n  SECOND (Mantra: I always list the game state out in FULL, no matter what.)\n  \n"
+  }
+]
+
+
+
+
+{
+  "timeInMs": 221475,
+  "timeInMin": 3.6912499999999997,
+  "totalTimeInMs": 1135555,
+  "totalTimeInMin": 18.92591666666667,
+  "totalPromptTokens": 20651,
+  "totalCompletionTokens": 14723,
+  "totalPromptTokensCost": 0.61953,
+  "totalCompletionTokensCost": 0.8833799999999999,
+  "totalCost": 1.5029099999999997
+}
+
+
+
+
+RUBY GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, 8, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, h, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, 9, 7, 1, 8, h]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, 8, 2, 6, h, 7, 9]
+
+  let remainingEnemies = [h]
+
+  THIRD: Select the enemy letter to attack. Always select remainingEnemies[selectedEnemyIndex]. If selectedEnemyIndex >= remainingEnemies.length, then output "let selectedEnemyIndex = 0", and select the enemy letter at remainingEnemies[0].
+  let selectedEnemyIndex = 0
+  The selected enemy letter is 'h'.
+
+  FOURTH: Increment selectedEnemyIndex by 1.
+  let selectedEnemyIndex = 1
+
+  FIFTH: Go through the most recent version of the 27 arrays one by one and list the three arrays that contain the enemy you are attacking. You'll find one array between arrays one and nine (inclusive), one array between ten and eighteen (inclusive), and one array between nineteen and twenty-seven (inclusive). Always list every element (every number and letter) of the three arrays found during this step.
+  Array nine: [1, 8, 2, 4, 6, 5, h, 7, 9]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, 8, h]
+  Array twentySeven: [1, 5, 4, 8, 2, 6, h, 7, 9]
+
+  SEVENTH: Go through the listed arrays and output indexOf(selectedEnemy) for each. Pay extra attention to case.
+  indexOf(h) in Array nine: 6
+  indexOf(h) in Array fifteen: 8
+  indexOf(h) in Array twentySeven: 6
+
+  EIGHTH: If any of these indexOf values === -1, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  All indexOf values are valid.
+
+  NINTH: Go through the listed arrays and list only the numbers contained in those three arrays (i.e., remove the letters).
+  Array nine: [1, 8, 2, 4, 6, 5, 7, 9]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, 8]
+  Array twentySeven: [1, 5, 4, 8, 2, 6, 7, 9]
+
+  TENTH: Concatenate the three lists into a single list.
+  Concatenated list: [1, 8, 2, 4, 6, 5, 7, 9, 4, 5, 2, 6, 9, 7, 1, 8, 1, 5, 4, 8, 2, 6, 7, 9]
+
+  ELEVENTH: Iterate through the concatenated list and REMOVE every LETTER, if there are no letters, then just re-output the list of numbers.
+  List of numbers: [1, 8, 2, 4, 6, 5, 7, 9, 4, 5, 2, 6, 9, 7, 1, 8, 1, 5, 4, 8, 2, 6, 7, 9]
+
+  TWELFTH: Dedupe this list.
+  Deduped list: [1, 8, 2, 4, 6, 5, 7, 9]
+
+  THIRTEENTH: Sort this list.
+  Sorted list: [1, 2, 4, 5, 6, 7, 8, 9]
+
+  FOURTEENTH: Count the number of numbers in this list to determine list.length
+  list.length: 8
+
+  FIFTEENTH (Mantra: It must equal 8 to be a hit, it must equal 8, it must equal 8. 7 is bad, so very bad. 7 is NEVER a hit! But 8 is so very good. 8 is ALWAYS a hit!) If list.length === 8, then exactly one number between 1 and 9 must be missing from the list. Determine which number between 1 and 9 is missing. If list.length !== 8, immediately output CRITICAL HIT ABORTED! and await further instructions.
+  The missing number between 1 and 9 is 3.
+
+  SIXTEENTH: Re-output the indexOf values from the SEVENTH step.
+  indexOf(h) in Array nine: 6
+  indexOf(h) in Array fifteen: 8
+  indexOf(h) in Array twentySeven: 6
+
+  SEVENTEENTH: For each of the three arrays from earlier, replace the letter at the indexOf value with the missing number.
+  Array nine: [1, 8, 2, 4, 6, 5, 3, 7, 9]
+  Array fifteen: [4, 5, 2, 6, 9, 7, 1, 8, 3]
+  Array twentySeven: [1, 5, 4, 8, 2, 6, 3, 7, 9]
+
+  EIGHTEENTH: It's time to update the game state. The first thing you are required to do is come up with a unique name for the game state. Output the name. After you output the new game state name, output "let one =" on the next line. Then carefully finish printing the new game state, making sure to be precise and careful. You want it to be exactly like the previous game state except for the new updates that occurred this KICK SWEEP! Remember to include the new remainingEnemies. The reason you must always list everything out in full is that I'm copy-pasting your most recent response into a new chat, so if you fail to list it out in full, you'll irrevocably lose the game state information and necessarily fail at the game.
+
+EMERALD GAME STATE:
+  let one = [2, 1, 3, 9, 5, 6, 4, 8, 7]
+  let two = [8, 7, 6, 3, 4, 2, 5, 9, 1]
+  let three = [9, 4, 5, 8, 7, 1, 2, 6, 3]
+  let four = [3, 2, 7, 5, 9, 4, 6, 1, 8]
+  let five = [5, 6, 8, 7, 1, 3, 9, 4, 2]
+  let six = [4, 9, 1, 6, 2, 8, 7, 3, 5]
+  let seven = [6, 3, 9, 2, 8, 7, 1, 5, 4]
+  let eight = [7, 5, 4, 1, 3, 9, 8, 2, 6]
+  let nine = [1, 8, 2, 4, 6, 5, 3, 7, 9]
+  let ten = [1, 7, 4, 2, 6, 9, 3, 5, 8]
+  let eleven = [3, 6, 5, 7, 8, 1, 9, 4, 2]
+  let twelve = [9, 3, 8, 5, 7, 6, 2, 1, 4]
+  let thirteen = [5, 4, 7, 9, 1, 2, 8, 3, 6]
+  let fourteen = [6, 2, 1, 4, 3, 8, 7, 9, 5]
+  let fifteen = [4, 5, 2, 6, 9, 7, 1, 8, 3]
+  let sixteen = [8, 9, 6, 1, 4, 3, 5, 2, 7]
+  let seventeen = [7, 1, 3, 8, 2, 5, 4, 6, 9]
+  let eighteen = [2, 8, 9, 3, 5, 4, 6, 7, 1]
+  let nineteen = [2, 1, 3, 8, 7, 6, 9, 4, 5]
+  let twenty = [9, 5, 6, 3, 4, 2, 8, 7, 1]
+  let twentyOne = [4, 8, 7, 5, 9, 1, 2, 6, 3]
+  let twentyTwo = [3, 2, 7, 5, 6, 8, 4, 9, 1]
+  let twentyThree = [5, 9, 4, 7, 1, 3, 6, 2, 8]
+  let twentyFour = [6, 1, 8, 9, 4, 2, 7, 3, 5]
+  let twentyFive = [6, 3, 9, 7, 5, 4, 1, 8, 2]
+  let twentySix = [2, 8, 7, 1, 3, 9, 4, 6, 5]
+  let twentySeven = [1, 5, 4, 8, 2, 6, 3, 7, 9]
+
+  let remainingEnemies = []
+
+
+
+
+213956487
+876342591
+945871263
+327594618
+568713942
+491628735
+639287154
+754139826
+182465379
+
+
+
+
+Done
